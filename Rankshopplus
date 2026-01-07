@@ -1,24 +1,23 @@
 -- [[ RANKSHOPPLUS FINAL FIX ]] --
 local KeyAuthApp = {
-    name = "Bumball451533's Application", 
-    ownerid = "p4upXvQdWj", 
-    secret = "6898d009228801f99c15810237da8df8df622c6082697813a34a2608316c49c7", -- ค่าที่เราดูจากหน้าสวิตช์สีฟ้า
+    name = "Bumball451533's Application",
+    ownerid = "p4upXvQdWj",
+    secret = "6898d009228801f99c15810237da8df8df622c6082697813a34a2608316c49c7",
     version = "1.0"
 }
 
 local KeyAuth = loadstring(game:HttpGet("https://raw.githubusercontent.com/KeyAuth/KeyAuth-Roblox-Lib/main/main.lua"))()
 
--- เริ่มต้นระบบ (ถ้าผ่านจะขึ้นแจ้งเตือนใน Console)
+-- เริ่มต้นระบบ
 KeyAuth:init(KeyAuthApp.name, KeyAuthApp.ownerid, KeyAuthApp.secret, KeyAuthApp.version)
 
 -- เรียกหน้าจอ Login
 KeyAuth:login()
 
 if KeyAuth.success then
-    -- ถ้าคีย์ผ่าน จะรันสคริปต์ฟาร์มของคุณ
     print("RANKSHOPPLUS: LOGIN SUCCESSFUL!")
+    -- รันสคริปต์ฟาร์ม
     loadstring(game:HttpGet("https://pastebin.com/raw/THe9B40M"))()
 else
-    -- ถ้าคีย์ไม่ผ่าน จะบอกสาเหตุใน Console (กด F9 ดูได้)
     warn("Login Failed: " .. tostring(KeyAuth.response))
 end
